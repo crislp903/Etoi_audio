@@ -14,7 +14,6 @@ fechas <- seq(from = dmy('1/9/2015'),
 etoi_data <- map2_df(.x = list.files('etoi_1519'), .y = fechas, 
                      .f = ~ import(paste0('etoi_1519/',.x)) %>% 
                        filter(t37_cod_2 %in% c(5900, 6000)) %>% 
-                       select(sexo, estado, t37_cod_2) %>% 
+                       select(sexo, estado, t37_cod_2, categori) %>% 
                        mutate(date = .y))
 
-import(paste0('etoi_1519/',list.files('etoi_1519')[1]))
